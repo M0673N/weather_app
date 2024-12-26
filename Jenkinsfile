@@ -29,7 +29,7 @@ pipeline {
 
     post {
         always {
-            cleanWs() // Clean workspace after the build
+            cleanWs() // Clean workspace after the build /test push
         }
     }
 }
