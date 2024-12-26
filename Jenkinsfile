@@ -1,4 +1,4 @@
-pipeline { //test multibranch
+pipeline {
     agent any
 
     stages {
