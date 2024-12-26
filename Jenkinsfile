@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                // Assuming you have Python 3.10 installed
                 script {
                     if (isUnix()) {
                         sh 'python3 -m pip install --upgrade pip'
