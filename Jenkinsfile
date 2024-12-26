@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                // Assuming you have Python 3.10 installed
                 bat 'python -m pip install --upgrade pip'
                 bat 'pip install -r requirements.txt'
                 bat 'pip install flake8'
