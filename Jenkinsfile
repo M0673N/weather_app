@@ -4,42 +4,48 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                if (isUnix()) {
-                    sh 'python3 -m pip install --upgrade pip'
-                    sh 'pip install -r requirements.txt'
-                    sh 'pip install flake8'
-                } else {
-                    bat 'python -m pip install --upgrade pip'
-                    bat 'pip install -r requirements.txt'
-                    bat 'pip install flake8'
+                script {
+                    if (isUnix()) {
+                        sh 'python3 -m pip install --upgrade pip'
+                        sh 'pip install -r requirements.txt'
+                        sh 'pip install flake8'
+                    } else {
+                        bat 'python -m pip install --upgrade pip'
+                        bat 'pip install -r requirements.txt'
+                        bat 'pip install flake8'
+                    }
                 }
             }
         }
 
         stage('Lint') {
             steps {
-                if (isUnix()) {
-                    sh '''
-                        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-                        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-                    '''
-                } else {
-                    bat '''
-                        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-                        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-                    '''
+                script {
+                    if (isUnix()) {
+                        sh '''
+                            flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+                            flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+                        '''
+                    } else {
+                        bat '''
+                            flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+                            flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+                        '''
+                    }
                 }
             }
         }
 
         stage('Test') {
             steps {
-                if (isUnix()) {
-                    // sh 'python -m unittest test_app.py'
-                    sh "echo 'hello'"
-                } else {
-                    // bat 'python -m unittest test_app.py'
-                    bat "echo 'hello'"
+                script {
+                    if (isUnix()) {
+                        // sh 'python -m unittest test_app.py'
+                        sh "echo 'hello'"
+                    } else {
+                        // bat 'python -m unittest test_app.py'
+                        bat "echo 'hello'"
+                    }
                 }
             }
         }
