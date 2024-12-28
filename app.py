@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify
 import requests
 from dotenv import load_dotenv
 import os
+from waitress import serve
 
 app = Flask(__name__)
 
@@ -72,4 +73,6 @@ def get_weather_data():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Optional for enabling debug mode
+    # app.run(debug=True, port=5000)
+    serve(app, host='0.0.0.0', port=5000)
