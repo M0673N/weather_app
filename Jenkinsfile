@@ -10,8 +10,8 @@ pipeline {
                 script {
                     if (isUnix()) {
                         sh 'python3 -m pip install --upgrade pip'
-                        sh 'pip install -r requirements.txt'
-                        sh 'pip install flake8'
+                        sh 'pip3 install -r requirements.txt'
+                        sh 'pip3 install flake8'
                     } else {
                         bat 'python -m pip install --upgrade pip'
                         bat 'pip install -r requirements.txt'
@@ -43,11 +43,9 @@ pipeline {
             steps {
                 script {
                     if (isUnix()) {
-                        // sh 'python -m unittest test_app.py'
-                        sh "echo 'hello'"
+                        sh 'python3 -m unittest test_app.py'
                     } else {
-                        // bat 'python -m unittest test_app.py'
-                        bat "echo 'hello'"
+                        bat 'python -m unittest test_app.py'
                     }
                 }
             }
