@@ -52,7 +52,7 @@ class TestWeatherApp(unittest.TestCase):
 
         # Check for specific content in the HTML response
         self.assertIn(b"Weather Application", response.data)
-        self.assertIn(b"<div class=\"container mt-5\">", response.data)
+        self.assertIn(b'<div class="container mt-5">', response.data)
 
     @patch("app.get_weather")
     def test_get_weather_data_route_single_city(self, mock_get_weather):
