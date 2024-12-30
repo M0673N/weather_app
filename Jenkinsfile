@@ -50,6 +50,37 @@ pipeline {
                 }
             }
         }
+
+        stage('Deploy to Render') {
+            when {
+                branch 'main'
+            }
+            steps {
+                script {
+                    withCredentials([
+                        string(credentialsId: 'RENDER_API_KEY', variable: 'RENDER_API_KEY'), 
+                        string(credentialsId: 'RENDER_DEPLOY_HOOK', variable: 'RENDER_DEPLOY_HOOK')
+                    ]) {
+                        // Trigger the redeploy via the Render API
+                        if (isUnix()) {
+                            sh """
+                                curl -X POST https://api.render.com/v1/services/${env.RENDER_DEPLOY_HOOK}/deploys \
+                                -H "Authorization: Bearer ${env.RENDER_API_KEY}" \
+                                -H "Content-Type: application/json" \
+                                -d "{}"
+                            """
+                        } else {
+                            bat """
+                                curl -X POST https://api.render.com/v1/services/${env.RENDER_DEPLOY_HOOK}/deploys ^
+                                -H "Authorization: Bearer ${env.RENDER_API_KEY}" ^
+                                -H "Content-Type: application/json" ^
+                                -d "{}"
+                            """
+                        }
+                    }
+                }
+            }
+        }
     }
 
     post {
