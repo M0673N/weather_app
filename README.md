@@ -1,5 +1,5 @@
 # Weather App
-Simple weather app. Allows you to check the weather conditions in different cities. 
+Simple weather app. Allows you to check the weather conditions in different cities.
 The aim of the project is to practice teamwork and DevOps practices.
 
 ![weather app](https://github.com/user-attachments/assets/620f6cac-4274-44fd-ae32-57cb8f90a7e6)
