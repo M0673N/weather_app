@@ -9,13 +9,21 @@ pipeline {
                 // Assuming you have Python 3.10 installed
                 script {
                     if (isUnix()) {
-                        sh 'python3 -m pip install --upgrade pip'
-                        sh 'pip3 install -r requirements.txt'
-                        sh 'pip3 install flake8'
+                        sh'''
+                        python3 -m venv .venv
+                        source .venv/bin/activate
+                        python3 -m pip install --upgrade pip
+                        pip3 install -r requirements.txt
+                        pip3 install flake8
+                        '''
                     } else {
-                        bat 'python -m pip install --upgrade pip'
-                        bat 'pip install -r requirements.txt'
-                        bat 'pip install flake8'
+                        bat '''
+                        python -m venv .venv
+                        source .venv/Sctipts/activate
+                        python -m pip install --upgrade pip
+                        pip install -r requirements.txt
+                        pip install flake8
+                        '''
                     }
                 }
             }
