@@ -10,9 +10,8 @@ pipeline {
                 script {
                     if (isUnix()) {
                         sh'''
-                        #!/bin/bash
                         python3 -m venv .venv
-                        source .venv/bin/activate
+                        . .venv/bin/activate
                         python3 -m pip install --upgrade pip
                         pip3 install -r requirements.txt
                         pip3 install flake8
