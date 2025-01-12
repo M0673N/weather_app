@@ -34,6 +34,7 @@ pipeline {
                 script {
                     if (isUnix()) {
                         sh '''
+                            . .venv/bin/activate
                             flake8 . --count --ignore=W503,E501 --max-line-length=127 \
                             --show-source --statistics --exclude=venv --max-complexity=10 --exit-zero 
                         '''
