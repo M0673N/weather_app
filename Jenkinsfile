@@ -52,7 +52,10 @@ pipeline {
             steps {
                 script {
                     if (isUnix()) {
-                        sh 'python3 -m unittest test_app.py'
+                        sh '''
+                        . .venv/bin/activate
+                        python3 -m unittest test_app.py
+                        '''
                     } else {
                         bat 'python -m unittest test_app.py'
                     }
