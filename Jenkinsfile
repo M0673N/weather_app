@@ -10,19 +10,19 @@ pipeline {
                 script {
                     if (isUnix()) {
                         sh'''
-                        python3 -m venv .venv
-                        . .venv/bin/activate
-                        python3 -m pip install --upgrade pip
-                        pip3 install -r requirements.txt
-                        pip3 install flake8
+                            python3 -m venv .venv
+                            . .venv/bin/activate
+                            python3 -m pip install --upgrade pip
+                            pip3 install -r requirements.txt
+                            pip3 install flake8
                         '''
                     } else {
                         bat '''
-                        python -m venv .venv
-                        call .venv/Scripts/activate
-                        python -m pip install --upgrade pip
-                        pip install -r requirements.txt
-                        pip install flake8
+                            python -m venv .venv
+                            call .venv/Scripts/activate
+                            python -m pip install --upgrade pip
+                            pip install -r requirements.txt
+                            pip install flake8
                         '''
                     }
                 }
@@ -54,13 +54,13 @@ pipeline {
                 script {
                     if (isUnix()) {
                         sh '''
-                        . .venv/bin/activate
-                        python3 -m unittest test_app.py
+                            . .venv/bin/activate
+                            python3 -m unittest test_app.py
                         '''
                     } else {
                         bat '''
-                        call .venv/Scripts/activate
-                        python -m unittest test_app.py
+                            call .venv/Scripts/activate
+                            python -m unittest test_app.py
                         '''
                     }
                 }
