@@ -19,7 +19,7 @@ pipeline {
                     } else {
                         bat '''
                         python -m venv .venv
-                        source .venv/Sctipts/activate
+                        call .venv/Scripts/activate
                         python -m pip install --upgrade pip
                         pip install -r requirements.txt
                         pip install flake8
@@ -40,7 +40,7 @@ pipeline {
                         '''
                     } else {
                         bat '''
-                            . .venv/Scripts/activate
+                            call .venv/Scripts/activate
                             flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics --exclude=.venv
                             flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics --exclude=.venv
                         '''
@@ -59,7 +59,7 @@ pipeline {
                         '''
                     } else {
                         bat '''
-                        . .venv/Scripts/activate
+                        call .venv/Scripts/activate
                         python -m unittest test_app.py
                         '''
                     }
