@@ -9,6 +9,15 @@ The aim of the project is to practice teamwork and DevOps practices.
 ## Requirements
 - **Python 3**: [Download Python 3.10](https://www.python.org/downloads/release/python-3100/)
 
+[.env](#env)
+Before running the application, ensure you have an `.env` file in your project directory with the following variable:
+
+```
+API_KEY=your_api_key
+```
+
+Replace `your_api_key` with your actual API key obtained from the weather service provider.
+
 ## Cloning and Running the Project
 - **Windows**:
 ```
@@ -41,4 +50,10 @@ python -m unittest test_app.py
 - **Linux and macOS**:
 ```
 python3 -m unittest test_app.py
+```
+
+## Runing with Docker
+- Don't forget the <a name="env">.env</a> file.
+```
+docker run -P -d --env-file .env --name weather_app m0673n/weather_app
 ```
