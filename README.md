@@ -51,5 +51,5 @@ python3 -m unittest test_app.py
 ## Runing with Docker
 - Don't forget the [.env](#env) file.
 ```
-docker run -P -d --env-file .env --name weather_app m0673n/weather_app
+docker run -P -d --name weather_app --env-file .env m0673n/weather_app
 ```
