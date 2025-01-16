@@ -8,8 +8,7 @@ The aim of the project is to practice teamwork and DevOps practices.
 
 ## Requirements
 - **Python 3**: [Download Python 3.10](https://www.python.org/downloads/release/python-3100/)
-- **<a name="env">`.env` file</a>**:
-Before running the application, ensure you have an `.env` file in your project directory with the following variable:
+- **<a name="env">`.env` file</a>**: Before running the application, ensure you have an `.env` file in your project directory with the following variable:
 ```
 API_KEY=your_api_key
 ```
