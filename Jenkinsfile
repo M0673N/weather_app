@@ -5,7 +5,7 @@ pipeline {
 
     environment {
         RENDER_API_KEY = credentials('RENDER_API_KEY')
-        RENDER_DEPLOY_HOOK_WEATHER_APP = credentials('RENDER_DEPLOY_HOOK_WEATHER_APP')
+        RENDER_DEPLOY_HOOK = credentials('RENDER_DEPLOY_HOOK_WEATHER_APP')
     }
 
     stages {
@@ -81,14 +81,14 @@ pipeline {
                     // Trigger the redeploy via the Render API
                     if (isUnix()) {
                         sh """
-                            curl -X POST https://api.render.com/v1/services/${env.RENDER_DEPLOY_HOOK_WEATHER_APP}/deploys \
+                            curl -X POST https://api.render.com/v1/services/${env.RENDER_DEPLOY_HOOK}/deploys \
                             -H "Authorization: Bearer ${env.RENDER_API_KEY}" \
                             -H "Content-Type: application/json" \
                             -d "{}"
                         """
                     } else {
                         bat """
-                            curl -X POST https://api.render.com/v1/services/${env.RENDER_DEPLOY_HOOK_WEATHER_APP}/deploys ^
+                            curl -X POST https://api.render.com/v1/services/${env.RENDER_DEPLOY_HOOK}/deploys ^
                             -H "Authorization: Bearer ${env.RENDER_API_KEY}" ^
                             -H "Content-Type: application/json" ^
                             -d "{}"
