@@ -4,7 +4,7 @@ The aim of the project is to practice teamwork and DevOps practices.
 
 ![weather app](https://github.com/user-attachments/assets/620f6cac-4274-44fd-ae32-57cb8f90a7e6)
 
-# Live at: [weather-app-u0jr.onrender.com](https://weather-app-u0jr.onrender.com/)
+# Live at: [m0673n-weather-app.onrender.com](https://m0673n-weather-app.onrender.com/)
 
 ## Requirements
 - **Python 3**: [Download Python 3.10](https://www.python.org/downloads/release/python-3100/)
